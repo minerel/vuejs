@@ -97,6 +97,7 @@ export default {
           name: "Buy bread",
           cart: false,
         },
+
         {
           id: 2,
           image: "@/assets/img2.png",
@@ -144,7 +145,6 @@ export default {
       }
     },
     onFiltered(filteredItems) {
-      // Trigger pagination to update the number of buttons/pages due to filtering
       this.totalRows = filteredItems.length;
       this.currentPage = 1;
     }
