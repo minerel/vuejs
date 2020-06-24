@@ -6,6 +6,7 @@
           <h2 class="text-secondary text-center">{{$t('home.task')}}</h2>
         </b-col>
       </b-row>
+      <!--Tasks-->
       <b-row>
         <b-col v-for="task in tasks " :key="task.id" md="4">
           <b-card
@@ -33,15 +34,35 @@
           </b-card>
         </b-col>
       </b-row>
+      <!--/Tasks-->
+
       <b-row>
+        <!--filtering-->
         <b-col>
           <h2 class="text-secondary text-center">{{$t('home.list')}}</h2>
-          <b-form-input class="my-4" v-model="search" placeholder="Search"></b-form-input>
+          <b-input-group size="md" class="col-md-12 my-4">
+            <b-form-input v-model="filter" type="search" id="filterInput" placeholder="Search"></b-form-input>
+            <b-input-group-append>
+              <b-button variant="primary" :disabled="!filter" @click="filter = ''">Clear</b-button>
+            </b-input-group-append>
+          </b-input-group>
         </b-col>
+        <!--/filtering-->
       </b-row>
       <b-row>
         <b-col>
-          <b-table class="text-secondary" bordered hover :items="cart" :fields="fields"></b-table>
+          <!--Completed tasks-->
+          <b-table
+            class="text-secondary"
+            bordered
+            hover
+            :items="cart"
+            :fields="fields"
+            :filter="filter"
+            :filterIncludedFields="filterOn"
+            @filtered="onFiltered"
+          ></b-table>
+          <!--/Completed tasks-->
         </b-col>
       </b-row>
       <b-row v-if="cart.length > 0">
@@ -64,8 +85,10 @@ export default {
   data() {
     return {
       search: "",
+      filter: null,
+      filterOn: [],
       ticket: {
-        tasks: null,
+        tasks: null
       },
       tasks: [
         {
@@ -73,46 +96,40 @@ export default {
           image: "@/assets/img1.png",
           name: "Buy bread",
           cart: false,
-          quantity: 1
         },
         {
           id: 2,
           image: "@/assets/img2.png",
           name: "Buy fruits",
           cart: false,
-          quantity: 1
         },
         {
           id: 3,
           image: "@/assets/img3.png",
           name: "Buy vegetables",
           cart: false,
-          quantity: 1
         },
         {
           id: 4,
           image: "@/assets/img4.png",
           name: "Buy milk",
           cart: false,
-          quantity: 1
         },
         {
           id: 5,
-          image: "@/assets/img5.png",
+          image: "@/assets/img4.png",
           name: "Buy meat",
           cart: false,
-          quantity: 1
         },
         {
           id: 6,
           image: "@/assets/img6.png",
           name: "Buy fish",
           cart: false,
-          quantity: 1
         }
       ],
       cart: [],
-      fields: ["id", "name", "quantity"]
+      fields: ["id", "name"]
     };
   },
   methods: {
@@ -124,8 +141,12 @@ export default {
       this.cart = [];
       for (const key in this.tasks) {
         this.tasks[key].cart = false;
-        this.tasks[key].quantity = 1;
       }
+    },
+    onFiltered(filteredItems) {
+      // Trigger pagination to update the number of buttons/pages due to filtering
+      this.totalRows = filteredItems.length;
+      this.currentPage = 1;
     }
   }
 };
