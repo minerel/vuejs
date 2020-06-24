@@ -1,0 +1,29 @@
+{
+  "name": "To Do",
+  "nav": {
+    "home": "Home",
+    "lang": "Language",
+    "eng": "English",
+    "tr": "Turkish",
+    "out": "Log Out"
+  },
+  "home": {
+    "task": "Tasks",
+    "list":"Completed List",
+    "milk": "Buy Milk",
+    "bread": "Buy Bread",
+    "water": "Buy Water",
+    "completed": "Completed",
+    "fields":["id", "remove", "name", "quantity"]
+  },
+  "auth": {
+    "email": "E-mail Address",
+    "emailPLace":"Enter your e-mail address",
+    "password": "Password",
+    "passwordPLace":"Enter your password",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "membership": "I have membership",
+    "notMembership":"I haven't membership"
+  }
+}

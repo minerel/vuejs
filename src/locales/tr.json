@@ -1,0 +1,31 @@
+{
+    "name": "To Do",
+    "nav": {
+        "home": "Anasayfa",
+        "lang":"Dil",
+        "eng":"İngilizce",
+        "tr":"Türkçe",
+        "out":"Çıkış Yap"
+    },
+    "home":{
+        "task":"Görevler",
+        "list":"Tamamlanmış Liste",
+        "milk":"Süt Al",
+        "bread":"Ekmek Al",
+        "water":"Su Al",
+        "completed":"Tamamlandı",
+        "fields":["id", "sil", "isim", "adet"]
+
+      },
+      "auth": {
+        "email": "E-mail Adresi",
+        "emailPLace":"E-mail adresini gir",
+        "password": "Şifre",
+        "passwordPLace":"Şifreni gir",
+        "signUp": "Kaydol",
+        "signIn": "Giriş Yap",
+        "membership": "Üyeliğim var",
+        "notMembership":"Üyeliğim yok"
+
+      }
+}
