@@ -41,9 +41,10 @@
         <b-col>
           <h2 class="text-secondary text-center">{{$t('home.list')}}</h2>
           <b-input-group size="md" class="col-md-12 my-4">
-            <b-form-input v-model="filter" type="search" id="filterInput" placeholder="Search"></b-form-input>
+            <b-form-input v-model="filter" type="search" id="filterInput" v-bind:placeholder="$t('home.search')"
+></b-form-input>
             <b-input-group-append>
-              <b-button variant="primary" :disabled="!filter" @click="filter = ''">Clear</b-button>
+              <b-button variant="primary" :disabled="!filter" @click="filter = ''">{{$t('home.clear')}}</b-button>
             </b-input-group-append>
           </b-input-group>
         </b-col>

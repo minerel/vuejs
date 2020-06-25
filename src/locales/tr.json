@@ -14,7 +14,10 @@
         "bread":"Ekmek Al",
         "water":"Su Al",
         "completed":"Tamamlandı",
-        "fields":["id", "sil", "isim", "adet"]
+        "fields":["id", "sil", "isim", "adet"],
+        "search":"Ara",
+        "clear": "Temizle"
+
 
       },
       "auth": {

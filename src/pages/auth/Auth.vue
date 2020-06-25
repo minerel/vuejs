@@ -18,6 +18,7 @@
               type="email"
               class="form-control"
               v-bind:placeholder="$t('auth.emailPLace')"
+              required
             />
           </div>
           <div class="form-group">
@@ -27,6 +28,7 @@
               type="password"
               class="form-control"
               v-bind:placeholder="$t('auth.passwordPLace')"
+              required
             />
           </div>
           <div class="button-container d-flex flex-column align-items-center">
@@ -47,7 +49,6 @@
   </div>
 </template>
 <script>
-
 export default {
   data() {
     return {
@@ -60,10 +61,11 @@ export default {
   },
   methods: {
     onSubmit() {
-     this.$store.dispatch("login",{...this.user, isUser: this.isUser})
-     .then(response => {
-         this.$router.push("/",response)
-     })	
+      this.$store
+        .dispatch("login", { ...this.user, isUser: this.isUser })
+        .then(response => {
+          this.$router.push("/", response);
+        });
     }
   }
 };

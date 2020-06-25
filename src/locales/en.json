@@ -14,7 +14,9 @@
     "bread": "Buy Bread",
     "water": "Buy Water",
     "completed": "Completed",
-    "fields":["id", "remove", "name", "quantity"]
+    "fields":["id", "remove", "name", "quantity"],
+    "search":"Search",
+    "clear": "Clear"
   },
   "auth": {
     "email": "E-mail Address",
